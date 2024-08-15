@@ -9,3 +9,13 @@ jobs:
       - run: npm ci
       - name: Run tests
         run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: actions/checkout@4
+      - name: install packages
+        run: npm ci
+      - name: build executable
+        run: npm run build
+      - name: deploy to cloud
+        run: Deployed to cloud
