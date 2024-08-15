@@ -9,4 +9,4 @@ jobs:
       - name: print context
         run: | 
           echo "${{ github.event.issue.title }}"
-          echo "${{ github.event.issue.description }}"" 
+          echo "${{ github.event.issue.description }}"
