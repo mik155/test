@@ -1,0 +1,9 @@
+name: Execue tests
+on: push
+jobs:
+  test:
+    - name: Get code
+      uses: actions/checkout@v4
+    - run: npm ci
+    - name: Run tests
+      run: npm test
