@@ -1,0 +1,22 @@
+name: Run test
+on: [push, workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: load code 
+        uses: actions/checkout@v4
+      - name: test
+        run: npm run test
+      - name: build
+        run: npn run build
+      - name: deploy
+        run: echo Deployed....
+  print-context:
+    runs-on: ubuntu-latest
+    depends: test
+    steps:
+      - name: print context no json
+        run: echo "${{ github }}"
+      - name: print context 
+        run: echo "${{ toJSON(github) }}"

@@ -1,0 +1,10 @@
+name: Listen issu
+on: 
+  issues:
+    types: [opened]
+jobs:
+  print-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print context
+        run: echo "{{ github.event }}"
