@@ -11,7 +11,7 @@ jobs:
       - name: test
         run: npm test
       - name: build
-        run: npn run build
+        run: npm run build
       - name: deploy
         run: echo Deployed....
   print-context:
