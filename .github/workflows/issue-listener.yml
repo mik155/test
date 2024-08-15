@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print context
-        run: echo "{{ github.event }}"
+        run: echo "${{ github.event }}"
