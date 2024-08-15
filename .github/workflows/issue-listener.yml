@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: print context
         run: | 
-          echo "${{ github.event.title }}" \
-          echo "${{ github.event.description }}" \
+          echo "${{ github.event.title }}"
+          echo "${{ github.event.description }}" 
