@@ -1,7 +1,7 @@
 name: Listen issu
 on: 
   issues:
-    types: [opened]
+    types: [opened, workflow_dispatch]
 jobs:
   print-context:
     runs-on: ubuntu-latest
