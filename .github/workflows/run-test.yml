@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: load code 
         uses: actions/checkout@v4
+      - name: install packages
+        run: npm ci
       - name: test
         run: npm test
       - name: build
