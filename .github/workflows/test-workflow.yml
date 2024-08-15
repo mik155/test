@@ -10,6 +10,7 @@ jobs:
       - name: Run tests
         run: npm test
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,4 +19,4 @@ jobs:
       - name: build executable
         run: npm run build
       - name: deploy to cloud
-        run: Deployed to cloud
+        run: echo Deployed...
