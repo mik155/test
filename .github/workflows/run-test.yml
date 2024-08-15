@@ -7,7 +7,7 @@ jobs:
       - name: load code 
         uses: actions/checkout@v4
       - name: test
-        run: npm run test
+        run: npm test
       - name: build
         run: npn run build
       - name: deploy
