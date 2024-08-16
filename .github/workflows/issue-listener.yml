@@ -1,13 +1,13 @@
 name: Listen issu
 on: 
   workflow_dispatch:
-  issues:
-    types: [opened]
+  push:
+    branches:
+    - main
 jobs:
   print-context:
     runs-on: ubuntu-latest
     steps:
       - name: print context
         run: | 
-          echo "${{ github.event.issue.title }}"
-          echo "${{ github.event.issue.body }}"
+          echo "${{ toJSON(github.event) }}"
