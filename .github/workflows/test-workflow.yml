@@ -7,15 +7,20 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      script-name: ${{ steps.publish.outputs.file-name }}
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Install dependencies and buo;d
+      - name: Install dependencies and build
         run: |
           npm ci
           npm run build
       - name: Run tests
         run: npm test
+      - id: publish
+        name: Publish
+        run: find dist/assets/*.js -type f -execdir echo 'file-name={}' >> $GITHUB_OUTPUT \;
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -34,6 +39,8 @@ jobs:
         run: npm ci
       - name: deploy
         run: echo Deploy test
+      - name: Display build output
+        run: echo '${{ needs.build.test.outputs.script-name }}'
   e2e-test:
     needs: test
     runs-on: ubuntu-latest
