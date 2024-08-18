@@ -12,15 +12,16 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Install dependencies and build
-        run: |
-          npm ci
-          npm run build
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
           path: ~/.npm
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
       - name: Run tests
         run: npm test
       - id: publish
