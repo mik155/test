@@ -40,7 +40,7 @@ jobs:
       - name: deploy
         run: echo Deploy test
       - name: Display build output
-        run: echo '${{ needs.build.test.outputs.script-name }}'
+        run: echo '${{ needs.test.outputs.script-name }}'
   e2e-test:
     needs: test
     runs-on: ubuntu-latest
