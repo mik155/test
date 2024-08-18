@@ -16,11 +16,11 @@ jobs:
         run: npm test
       - name: Upload artifact
         uses: actions/upload-artifact@v3
-          with:
-            name: dist-files
-            path: |
-              dist
-              package.json
+        with:
+          name: dist-files
+          path: |
+            dist
+            package.json
 
   deploy:
     needs: test
