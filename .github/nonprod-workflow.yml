@@ -1,0 +1,19 @@
+name: Non-production github workflow
+on:
+  push:
+    branches: 
+      - 'main'
+jobs:
+  build_and_deploy:
+    name: Build and deploy to GCP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to repository
+      uses: actions/checkout@4
+      - name: Install dependencies and build
+      run: |
+        npm ci
+        npm run build
+      - name: Test code
+        run: npm test
+
