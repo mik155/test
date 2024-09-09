@@ -9,12 +9,10 @@ jobs:
     steps:
       - name: checkout to destination repository
         uses: actions/checkout@v4
-      
       - name: install packages
         run: |
           npm version
-          npm install
-      
+          npm install  
       - name: test code
         run: npm run test
 
@@ -23,13 +21,11 @@ jobs:
     needs: build-and-test
     steps:
       - name: checkout to destination repository
-        uses: actions/checkout@v4
-      
+        uses: actions/checkout@v4      
       - name: install packages
         run: |
           npm version
           npm install
-
       - name: deploy to cloud
         run: echo "deploying to cloud"
   
@@ -37,4 +33,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print out variables
-        run: echo ${{ toJSON(github) }}
+        run: echo "${{ toJSON(github) }}"
