@@ -13,7 +13,7 @@ jobs:
       - name: build ad test
         run: |
           npm install
-          npm run buid
+          npm run build
           npm test 
       - uses: actions/upload-artifact@v3
         with:
