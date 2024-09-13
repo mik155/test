@@ -1,0 +1,24 @@
+name: Non prod workflow 2
+on:
+  dispatch_workflow:
+  push:
+    branches:
+    - main
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build ad test
+        run: |
+          npm install
+          npm run buid
+          npm test 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-files
+          path: |
+            dist
+            package.json
+
