@@ -23,7 +23,7 @@ jobs:
             package.json
   download-and-list:
     needs: build-and-test
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
     - name: downloads uploaded files
       uses: actions/download-artifact@v4
