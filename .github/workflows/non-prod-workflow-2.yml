@@ -18,9 +18,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: my-files
-          path: |
-            dist
-            package.json
+          path: dist
   download-and-list:
     needs: build-and-test
     runs-on: ubuntu-latest
