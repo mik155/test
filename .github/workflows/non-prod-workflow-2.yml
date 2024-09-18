@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: downloads uploaded files
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v3
       with:
         name: my-files
     - name: list directory
