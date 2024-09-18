@@ -1,0 +1,33 @@
+name: Non prod workflow 2
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build ad test
+        run: |
+          npm install
+          npm run build
+          npm test 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-files
+          path: dist
+  download-and-list:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+    - name: downloads uploaded files
+      uses: actions/download-artifact@v3
+      with:
+        name: my-files
+    - name: list directory
+      run: ls -la
+    
+
