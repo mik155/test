@@ -22,6 +22,7 @@ jobs:
             dist
             package.json
   download-and-list:
+    needs: build-and-test
     runs-on: ubuntu:latest
     steps:
     - name: downloads uploaded files
